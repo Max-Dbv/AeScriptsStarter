@@ -20,12 +20,12 @@ if (currentComp && currentComp.typeName !== 'Composition') {
     }
 
     const shapeLayer = currentComp.layers.addShape()
-    const circleGroup = shapeLayer.property("Contents").addProperty("ADBE Vector Group");
+    const circleGroup = shapeLayer.property("Contents").addProperty("ADBE Vector Group")
 
     const fillGroupWithCircle = (groupToFill, horizontalCount = 10, verticalCount = 10) => {
         let circles = []
-        for (i = 0; i < horizontalCount; i++) {
-            for (j = 0; j < verticalCount; j++) {
+        for (let i = 0; i < horizontalCount; i++) {
+            for (let j = 0; j < verticalCount; j++) {
                 const curCircle = groupToFill.property("Contents").addProperty("ADBE Vector Shape - Ellipse")
 
                 const posX = (projectWidth / (horizontalCount - 1) ) * i - (projectWidth / 2) 
