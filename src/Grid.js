@@ -27,10 +27,16 @@ if (currentComp && currentComp.typeName !== 'Composition') {
         for (i = 0; i < horizontalCount; i++) {
             for (j = 0; j < verticalCount; j++) {
                 const curCircle = groupToFill.property("Contents").addProperty("ADBE Vector Shape - Ellipse")
-                const posX = (projectWidth / horizontalCount) * i - (projectWidth / 2)
-                const posY = (projectHeight / verticalCount) * j - (projectHeight / 2)
+
+                const posX = (projectWidth / (horizontalCount - 1) ) * i - (projectWidth / 2) 
+                const posY = (projectHeight / (verticalCount - 1) ) * j - (projectHeight / 2)
+
+                const sizeX = (Math.abs(posX) / projectWidth) * 500
+                const sizeY = (Math.abs(posY) / projectHeight) * 500
 
                 curCircle.property("ADBE Vector Ellipse Position").setValue([posX, posY])
+                curCircle.property("ADBE Vector Ellipse Size").setValue([sizeX, sizeY])
+
                 circles.push(curCircle)
             }
         }
