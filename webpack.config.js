@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        demoPalette: './src/DemoPalette.js',
+        grid: './src/index.js',
     },
     output: {
         filename: '[name].bundle.js',
@@ -14,7 +14,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: 'babel-loader'
                 }
             }
         ]
