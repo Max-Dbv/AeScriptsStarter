@@ -1,5 +1,3 @@
-import Test from './test.js'
-
 {
 	// Demo Palette.jsx
 	// 
@@ -9,7 +7,7 @@ import Test from './test.js'
 
 	function DemoPalette(thisObj) {
 		
-		alert(`Hello ${Test.hello} from another file`)
+		// alert(`Hello ${Test.hello} from another file`)
 
 		// Called when a button is pressed, to invoke its associated script
 		const onHelpButtonClick = () => {
@@ -88,7 +86,7 @@ import Test from './test.js'
 			// re-establish it during onScriptButtonClick(). This will insure that the 
 			// files run during onScriptButtonClick() can properly read other script files.
 			//
-			debugger
+
 			const myDirectory = Folder.current
 			const demosDirectory = new Folder(myDirectory.absoluteURI)
 			// Horizontal Spacing variables
