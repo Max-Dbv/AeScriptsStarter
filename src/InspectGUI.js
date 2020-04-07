@@ -67,8 +67,10 @@ const fetchData = () => {
 
     const textLayerBounds = textLayer ? getActualLayerSize(textLayer) : null
 
-    gui.layerPanel.lWidth.e.text = textLayer ? textLayerBounds.width : errNoTextSelected
-    gui.layerPanel.lHeight.e.text = textLayer ? textLayerBounds.height : errNoTextSelected
+    gui.layerPanel.lWidth.e.text = textLayer ?
+        `${Math.round(textLayerBounds.width)} (${textLayerBounds.width})` : errNoTextSelected
+    gui.layerPanel.lHeight.e.text = textLayer ?
+        `${Math.round(textLayerBounds.height)} (${textLayerBounds.height})` : errNoTextSelected
 }
 
 
