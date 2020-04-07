@@ -41,7 +41,7 @@ var getFontSize = function getFontSize(textLayer) {
 
 var getActualLayerSize = function getActualLayerSize(layer) {
   var layerScale = layer.property("Scale").value;
-  var layerBounds = layer.sourceRectAtTime(0, false);
+  var layerBounds = layer.sourceRectAtTime(app.project.activeItem.time, false);
   return layerScale && layerBounds ? {
     width: layerScale[0] * 0.01 * layerBounds.width,
     height: layerScale[1] * 0.01 * layerBounds.height
@@ -49,10 +49,9 @@ var getActualLayerSize = function getActualLayerSize(layer) {
 };
 
 var selectTextLayer = function selectTextLayer(comp) {
-  if (comp && comp.selectedLayers && comp.selectedLayers.length > 0) {
+  if (comp.selectedLayers && comp.selectedLayers.length > 0) {
     if (comp.selectedLayers[0].matchName == 'ADBE Text Layer') {
-      var textLayer = comp.selectedLayers[0];
-      return textLayer;
+      return comp.selectedLayers[0];
     }
   }
 
@@ -65,8 +64,8 @@ var fetchData = function fetchData() {
   gui.fontPanel.fFamily.e.text = textLayer ? getFont(textLayer) : errNoTextSelected;
   gui.fontPanel.fSize.e.text = textLayer ? getFontSize(textLayer) : errNoTextSelected;
   var textLayerBounds = textLayer ? getActualLayerSize(textLayer) : null;
-  gui.layerPanel.lWidth.e.text = textLayer ? "".concat(Math.round(textLayerBounds.width), " (").concat(textLayerBounds.width, ")") : errNoTextSelected;
-  gui.layerPanel.lHeight.e.text = textLayer ? "".concat(Math.round(textLayerBounds.height), " (").concat(textLayerBounds.height, ")") : errNoTextSelected;
+  gui.layerPanel.lWidth.e.text = textLayerBounds ? "".concat(Math.round(textLayerBounds.width), " (").concat(textLayerBounds.width, ")") : errNoTextSelected;
+  gui.layerPanel.lHeight.e.text = textLayerBounds ? "".concat(Math.round(textLayerBounds.height), " (").concat(textLayerBounds.height, ")") : errNoTextSelected;
 };
 
 gui = new Window(layout);
