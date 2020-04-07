@@ -40,7 +40,7 @@ var getFontSize = function getFontSize(textLayer) {
 };
 
 var getActualLayerSize = function getActualLayerSize(layer) {
-  var layerScale = layer.property("Scale").value;
+  var layerScale = layer.scale.value;
   var layerBounds = layer.sourceRectAtTime(app.project.activeItem.time, false);
   return layerScale && layerBounds ? {
     width: layerScale[0] * 0.01 * layerBounds.width,
