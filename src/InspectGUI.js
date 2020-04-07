@@ -73,9 +73,9 @@ const fetchData = () => {
 
 
 gui = new Window(layout)
-
 gui.buttons.refreshBtn.onClick = () => fetchData()
 
 fetchData()
+
 gui.center()
 gui.show()
