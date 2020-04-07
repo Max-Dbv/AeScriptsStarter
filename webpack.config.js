@@ -2,7 +2,8 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        grid: './src/index.js',
+        inspectgui: './src/InspectGUI.js',
+        grid: './src/Grid.js',
     },
     output: {
         filename: '[name].bundle.js',

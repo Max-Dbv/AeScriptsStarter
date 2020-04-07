@@ -9,7 +9,8 @@
             "request": "launch",
             "name": "Start current file",
             "program": "${workspaceFolder}/lib/${fileBasenameNoExtension}.bundle.js",
-            "stopOnEntry": false
+            "stopOnEntry": false,
+            "engineName": "session",
         }
     ]
 }
