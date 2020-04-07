@@ -40,7 +40,7 @@ const getFontSize = (textLayer) => {
 
 const getActualLayerSize = (layer) => {
     const layerScale = layer.property("Scale").value
-    const layerBounds = layer.sourceRectAtTime(0, false) 
+    const layerBounds = layer.sourceRectAtTime(app.project.activeItem.time, false) 
 
     return layerScale && layerBounds ? {
         width: layerScale[0] * 0.01 * layerBounds.width,
