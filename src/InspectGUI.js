@@ -51,8 +51,7 @@ const getActualLayerSize = (layer) => {
 const selectTextLayer = (comp) => {
     if (comp && comp.selectedLayers && comp.selectedLayers.length > 0) {
         if (comp.selectedLayers[0].matchName == 'ADBE Text Layer') {
-            const textLayer = comp.selectedLayers[0]
-            return textLayer
+            return comp.selectedLayers[0]
         }
     }
     return null
