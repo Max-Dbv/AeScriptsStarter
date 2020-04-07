@@ -49,7 +49,7 @@ const getActualLayerSize = (layer) => {
 }
 
 const selectTextLayer = (comp) => {
-    if (comp && comp.selectedLayers && comp.selectedLayers.length > 0) {
+    if (comp.selectedLayers && comp.selectedLayers.length > 0) {
         if (comp.selectedLayers[0].matchName == 'ADBE Text Layer') {
             return comp.selectedLayers[0]
         }
@@ -66,9 +66,9 @@ const fetchData = () => {
 
     const textLayerBounds = textLayer ? getActualLayerSize(textLayer) : null
 
-    gui.layerPanel.lWidth.e.text = textLayer ?
+    gui.layerPanel.lWidth.e.text = textLayer && textLayerBounds ?
         `${Math.round(textLayerBounds.width)} (${textLayerBounds.width})` : errNoTextSelected
-    gui.layerPanel.lHeight.e.text = textLayer ?
+    gui.layerPanel.lHeight.e.text = textLayer && textLayerBounds ?
         `${Math.round(textLayerBounds.height)} (${textLayerBounds.height})` : errNoTextSelected
 }
 
